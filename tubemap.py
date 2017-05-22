@@ -1,7 +1,7 @@
 #! /usr/bin/python
 
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import pandas as pd
 from scipy import misc
 import pickle
@@ -48,11 +48,11 @@ def main():
             # mapseg[0, 1, sn] = tcy[stat1['name']]
             # mapseg[1, 0, sn] = tcx[stat2['name']]
             # mapseg[1, 1, sn] = tcy[stat2['name']]
-            plt.plot(geoseg[:, 0, sn], geoseg[:, 1, sn], '#' + clr.iloc[0])
+            # plt.plot(geoseg[:, 0, sn], geoseg[:, 1, sn], '#' + clr.iloc[0])
             # ax2.plot(mapseg[:, 0, sn], mapseg[:, 1, sn], '#' + clr.iloc[0])
         geolist.append(geoseg)
         # maplist.append(mapseg)
-    plt.scatter(stations.longitude, stations.latitude)
+    # plt.scatter(stations.longitude, stations.latitude)
     # ax2.scatter(tcT.x, tcT.y)
     # plt.show()
     # timg = misc.imread('./lines.png', mode='RGB')
@@ -72,6 +72,7 @@ def main():
     pngdict = {}
     filldict = {}
     for fn in fnlist:
+        print(fn)
         lineimage = misc.imread('./' + fn + '.png', mode='L')
         img_nogaps = fillgaps(lineimage, iterations=3, sqsize=81)
         filldict[fn] = img_nogaps
